@@ -1,0 +1,163 @@
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: calc(100vh - 70px);
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+/* Aside sections */
+aside {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1.5rem;
+  height: fit-content;
+}
+
+aside h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 0.75rem;
+}
+
+aside > div {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+
+aside > div:hover {
+  border-color: #58a6ff;
+}
+
+aside h3 {
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+  color: #58a6ff;
+}
+
+aside h3:last-child {
+  color: #8b949e;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* Main section */
+main {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Search section */
+#serach {
+  margin-bottom: 1.5rem;
+}
+
+#serach input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#serach input:focus {
+  border-color: #58a6ff;
+}
+
+#serach input::placeholder {
+  color: #8b949e;
+}
+
+/* Repository cards in main */
+main > div:not(#serach) {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+main > div:not(#serach):hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+}
+
+main > div h3:first-child {
+  font-size: 1.1rem;
+  color: #58a6ff;
+  margin-bottom: 0.5rem;
+}
+
+main > div h3:last-child {
+  font-size: 0.9rem;
+  color: #8b949e;
+  font-weight: 400;
+}
+
+/* Events list */
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside li {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+aside li:hover {
+  border-color: #58a6ff;
+}
+
+aside li p {
+  margin: 0;
+  color: #c9d1d9;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  aside:first-child {
+    order: 2;
+  }
+  
+  main {
+    order: 1;
+  }
+  
+  aside:last-child {
+    order: 3;
+  }
+}

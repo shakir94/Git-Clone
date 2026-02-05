@@ -1,0 +1,414 @@
+#profile {
+  background-color: #0d1117;
+  min-height: calc(100vh - 70px);
+  color: #c9d1d9;
+}
+
+.profile-header {
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 0 2rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: #8b949e;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.tab:hover {
+  color: #c9d1d9;
+}
+
+.tab.active {
+  color: #ffffff;
+  border-bottom-color: #f78166;
+}
+
+.tab svg {
+  width: 16px;
+  height: 16px;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  align-items: start;
+}
+
+/* Sidebar */
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 3px solid #30363d;
+}
+
+.username {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.follow-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.follow-btn:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+.follow-btn.following {
+  background-color: #238636;
+  border-color: #238636;
+  color: #ffffff;
+}
+
+.follow-btn.following:hover {
+  background-color: #2ea043;
+  border-color: #2ea043;
+}
+
+.followers-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #30363d;
+}
+
+.follower-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.follower-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.follower-item strong {
+  color: #c9d1d9;
+  font-weight: 600;
+}
+
+/* Main Content */
+.profile-main {
+  background-color: transparent;
+}
+
+.profile-main h3 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.repo-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.repo-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+}
+
+.repo-card h4 {
+  color: #58a6ff;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.repo-card p {
+  color: #8b949e;
+  font-size: 0.85rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+/* Starred - List Layout */
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.repo-item {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.repo-item:hover {
+  border-color: #58a6ff;
+}
+
+.repo-item h4 {
+  color: #58a6ff;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.repo-item p {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+/* Repository Meta */
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #8b949e;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.language-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.language-color.js {
+  background-color: #f1e05a;
+}
+
+.language-color.react {
+  background-color: #61dafb;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .profile-content {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 2rem;
+    order: 1;
+  }
+
+  .profile-main {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 1rem;
+  }
+
+  .tabs {
+    padding: 0 1rem;
+  }
+
+  .repo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+.heatmap-container {
+  padding: 20px;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.heatmap-container h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  text-align: center; 
+  width: 100%;
+}
+
+
+.HeatMapProfile {
+  display: flex !important;
+  justify-content: center !important; 
+  width: 100% !important;
+  background-color: transparent;
+}
+
+.HeatMapProfile svg {
+  width: auto !important; 
+  height: auto !important;
+  overflow: visible !important;
+  display: block;
+  max-width: 100%;
+}
+
+
+.HeatMapProfile > svg > g:first-child text {
+  fill: #ffffff !important; 
+  font-size: 12px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-anchor: end;
+}
+
+
+.HeatMapProfile > svg > g:nth-child(2) text {
+  fill: #ffffff !important; 
+  font-size: 13px !important;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+
+.HeatMapProfile rect {
+  stroke: #0d1117;
+  stroke-width: 2px;
+  transition: all 0.2s ease;
+  shape-rendering: geometricPrecision;
+}
+
+.HeatMapProfile rect:hover {
+  stroke: #58a6ff;
+  stroke-width: 2.5px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+
+.HeatMapProfile > svg > g:last-child {
+  transform: translateY(0);
+}
+
+
+.HeatMapProfile > svg {
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .heatmap-container {
+    padding: 15px;
+    overflow-x: auto;
+    align-items: flex-start; 
+  }
+
+  .HeatMapProfile {
+    justify-content: flex-start !important; 
+    min-width: 700px;
+  }
+
+  .heatmap-container h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .HeatMapProfile rect {
+    rx: 1.5 !important;
+  }
+  
+  .HeatMapProfile > svg > g:first-child text,
+  .HeatMapProfile > svg > g:nth-child(2) text {
+    font-size: 10px !important;
+  }
+}
+
+
+.heatmap-container.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
+.HeatMapProfile rect[fill="#161b22"] {
+  opacity: 0.4;
+}
