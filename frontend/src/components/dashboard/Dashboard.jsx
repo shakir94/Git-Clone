@@ -88,23 +88,13 @@ const Dashboard = () => {
         <h2>Upcoming events</h2>
         <ul>
           <li>
-            <p>Tecj data</p>
+            <p>Ecommerce--comming soon</p>
           </li>
           <li>
-            <p>Tecj data</p>
+            <p>Investing app = coming soon</p>
           </li>
-          <li>
-            <p>Tecj data</p>
-          </li>
-          <li>
-            <p>Tecj data</p>
-          </li>
-          <li>
-            <p>Tecj data</p>
-          </li>
-          <li>
-            <p>Tecj data</p>
-          </li>
+         
+         
         </ul>
       </aside>
     </section>
