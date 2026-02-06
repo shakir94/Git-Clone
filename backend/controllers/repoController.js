@@ -5,6 +5,9 @@ const Issue = require("../models/issueModel");
 
 const createRepository = async (req, res) => {
   const { name, description, content, visibility, owner, issues } = req.body;
+  console.log("OWNER VALUE:", owner);
+console.log("OWNER TYPE:", typeof owner);
+
 
   try {
     if (!name) {

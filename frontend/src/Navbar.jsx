@@ -15,7 +15,7 @@ const Navbar = () => {
       </a>
 
       <div>
-        <a href="/create"><p>Create a Repository</p></a>
+        <a href="/create-repository"><p>Create a Repository</p></a>
         <a href="/profile"><p>Profile</p></a>
       </div>
     </nav>

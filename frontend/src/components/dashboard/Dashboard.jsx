@@ -28,7 +28,7 @@ const Dashboard = () => {
 
     const fetchSuggestedRepo = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/repo/all`);
+        const response = await axios.get(`${API_URL}/repo/all`);
         console.log(response.data);
         setSuggestedRepositories(response.data.repositories);
       } catch (error) {
@@ -91,7 +91,7 @@ const Dashboard = () => {
             <p>Ecommerce--comming soon</p>
           </li>
           <li>
-            <p>Investing app = coming soon</p>
+            <p>Investing app--coming soon</p>
           </li>
          
          
