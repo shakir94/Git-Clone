@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./dashboard.css";
 import Navbar from "../../Navbar";
 import { API_URL } from "../../config";
 
-
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestedRepositories, setSuggestedRepositories] = useState([]);
@@ -16,9 +17,7 @@ const Dashboard = () => {
 
     const fetchRepo = async () => {
       try {
-        const response = await axios.get(
-          `${API_URL}/repo/user/${userId}`,
-        );
+        const response = await axios.get(`${API_URL}/repo/user/${userId}`);
         console.log(response.data);
         setRepositories(response.data.repositories);
       } catch (error) {
@@ -50,54 +49,64 @@ const Dashboard = () => {
     }
   }, [searchQuery, repositories]);
 
+  const handleRepoClick = (repoId) => {
+    navigate(`/repo/${repoId}`);
+  };
+
   return (
     <>
-    <Navbar/>
-    <section id="dashboard">
-      <aside>
-        <h2>suggested Repositories</h2>
-        {suggestedRepositories.map((repo) => {
-          return (
-            <div key={repo._id}>
-              <h3>{repo.name}</h3>
-              <h3>{repo.description}</h3>
-            </div>
-          );
-        })}
-      </aside>
-      <main>
-        <h2>Your Repositories</h2>
-        <div id="serach">
-          <input
-            type="text"
-            value={searchQuery}
-            placeholder="Search..."
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-        {searchResults.map((repo) => {
-          return (
-            <div key={repo._id}>
-              <h3>{repo.name}</h3>
-              <h3>{repo.description}</h3>
-            </div>
-          );
-        })}
-      </main>
-      <aside>
-        <h2>Upcoming events</h2>
-        <ul>
-          <li>
-            <p>Ecommerce--comming soon</p>
-          </li>
-          <li>
-            <p>Investing app--coming soon</p>
-          </li>
-         
-         
-        </ul>
-      </aside>
-    </section>
+      <Navbar />
+      <section id="dashboard">
+        <aside>
+          <h2>suggested Repositories</h2>
+          {suggestedRepositories.map((repo) => {
+            return (
+              <div
+                key={repo._id}
+                onClick={() => handleRepoClick(repo._id)}
+                style={{ cursor: "pointer" }}
+              >
+                <h3>{repo.name}</h3>
+                <h3>{repo.description}</h3>
+              </div>
+            );
+          })}
+        </aside>
+        <main>
+          <h2>Your Repositories</h2>
+          <div id="serach">
+            <input
+              type="text"
+              value={searchQuery}
+              placeholder="Search..."
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          {searchResults.map((repo) => {
+            return (
+              <div
+                key={repo._id}
+                onClick={() => handleRepoClick(repo._id)}
+                style={{ cursor: "pointer" }}
+              >
+                <h3>{repo.name}</h3>
+                <h3>{repo.description}</h3>
+              </div>
+            );
+          })}
+        </main>
+        <aside>
+          <h2>Upcoming events</h2>
+          <ul>
+            <li>
+              <p>Ecommerce--comming soon</p>
+            </li>
+            <li>
+              <p>Investing app--coming soon</p>
+            </li>
+          </ul>
+        </aside>
+      </section>
     </>
   );
 };

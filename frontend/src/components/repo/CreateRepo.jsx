@@ -62,7 +62,7 @@ const CreateRepo = () => {
       const repoData = {
         name: name.trim(),
         description: description.trim() || "",
-        content: "",
+        content: [],
         visibility,
         owner: userId,
         issues: [],

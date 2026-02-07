@@ -33,7 +33,10 @@ console.log("OWNER TYPE:", typeof owner);
       .json({ message: "Repository Created", repositoryID: result._id });
   } catch (err) {
     console.error("Error during repo creation", err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json({
+    message: err.message,
+    error: err,
+  });
   }
 };
 
@@ -53,17 +56,20 @@ const getAllRepositories = async (req, res) => {
 const fetchRepositoryById = async (req, res) => {
   const currentId = req.params.id;
   try {
-    const repository = await Repository.find({ _id: currentId })
-      .populate("owner")
+    const repository = await Repository.findById(currentId)
+      .populate("owner", "username email _id")
       .populate("issues");
 
-    res.json({ repository });
+    if (!repository) {
+      return res.status(404).json({ message: "Repository not found" });
+    }
+
+    res.json(repository); // Return single object, not array
   } catch (err) {
     console.error("Error during fetching", err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json({ message: "Server Error" });
   }
 };
-
 const fetchRepositoryByName = async (req, res) => {
   const { name } = req.params;
   try {
