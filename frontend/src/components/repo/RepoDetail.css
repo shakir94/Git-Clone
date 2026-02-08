@@ -474,3 +474,118 @@
     justify-content: center;
   }
 }
+
+
+/* Issues Header Actions */
+.issues-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-create-issue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #238636;
+  color: #ffffff;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-create-issue:hover {
+  background: #2ea043;
+}
+
+.btn-create-issue svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Issue Item Styles */
+.issue-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.issue-item:hover {
+  border-color: #58a6ff;
+  background: rgba(88, 166, 255, 0.05);
+}
+
+.issue-icon {
+  flex-shrink: 0;
+  color: #3fb950;
+  padding-top: 2px;
+}
+
+.issue-content {
+  flex: 1;
+}
+
+.issue-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9d1d9;
+}
+
+.issue-content p {
+  margin: 0;
+  font-size: 13px;
+  color: #8b949e;
+  line-height: 1.4;
+  display: -webkit-box;
+  /*-webkit-line-clamp: 2;  */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.issue-status {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.issue-status.open {
+  color: #3fb950;
+  background: rgba(63, 185, 80, 0.15);
+}
+
+.issue-status.closed {
+  color: #a371f7;
+  background: rgba(163, 113, 247, 0.15);
+}
+
+/* Empty State Small */
+.empty-state-small {
+  text-align: center;
+  padding: 32px 20px;
+  color: #8b949e;
+}
+
+.empty-state-small p {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.empty-state-small span {
+  font-size: 13px;
+  color: #6e7681;
+}

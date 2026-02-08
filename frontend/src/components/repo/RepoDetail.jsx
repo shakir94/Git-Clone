@@ -9,6 +9,7 @@ const RepoDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [repo, setRepo] = useState(null);
+  const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -35,7 +36,19 @@ const RepoDetail = () => {
       }
     };
 
+    const fetchIssues = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/issue/all/${id}`);
+        setIssues(response.data.issues || []);
+      } catch (err) {
+        console.error("Error fetching issues:", err);
+        // Don't show error if no issues found
+        setIssues([]);
+      }
+    };
+
     fetchRepoDetails();
+    fetchIssues();
   }, [id]);
 
   const handleDelete = async () => {
@@ -223,29 +236,62 @@ const RepoDetail = () => {
           <div className="repo-issues-section">
             <div className="issues-header">
               <h3>Issues</h3>
-              <span className="issue-count">{repo.issues?.length || 0}</span>
+              <div className="issues-header-actions">
+                <span className="issue-count">{issues.length}</span>
+                <button
+                  className="btn-create-issue"
+                  onClick={() => navigate(`/repo/${id}/issue/create`)}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path>
+                  </svg>
+                  New Issue
+                </button>
+              </div>
             </div>
 
-            {repo.issues && repo.issues.length > 0 ? (
+            {issues && issues.length > 0 ? (
               <div className="issues-list">
-                {repo.issues.map((issue, index) => (
-                  <div key={index} className="issue-item">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                    >
-                      <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
-                      <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
-                    </svg>
-                    <span>Issue #{index + 1}</span>
+                {issues.map((issue) => (
+                  <div
+                    key={issue._id}
+                    className="issue-item"
+                    onClick={() => navigate(`/issue/${issue._id}`)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <div className="issue-icon">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        {issue.status === "open" ? (
+                          <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                        ) : (
+                          <path d="M11.28 6.78a.75.75 0 0 0-1.06-1.06L7.25 8.69 5.78 7.22a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l3.5-3.5ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1.5 0a6.5 6.5 0 1 0-13 0 6.5 6.5 0 0 0 13 0Z"></path>
+                        )}
+                      </svg>
+                    </div>
+                    <div className="issue-content">
+                      <h4>{issue.title}</h4>
+                      <p>{issue.description}</p>
+                    </div>
+                    <span className={`issue-status ${issue.status}`}>
+                      {issue.status}
+                    </span>
                   </div>
                 ))}
               </div>
             ) : (
               <div className="empty-state-small">
                 <p>No issues yet</p>
+                <span>Create your first issue to track bugs and features</span>
               </div>
             )}
           </div>
@@ -330,3 +376,4 @@ const RepoDetail = () => {
 };
 
 export default RepoDetail;
+

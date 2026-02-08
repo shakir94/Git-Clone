@@ -10,6 +10,9 @@ import UpdateProfile from "./components/user/UpdatUser";
 import CreateRepo from "./components/repo/CreateRepo";
 import RepoDetail from "./components/repo/repoDetail";
 import UpdateRepo from "./components/repo/UpdateRepo";
+import CreateIssue from "./components/issue/CreateIssue";
+import IssueDetail from "./components/issue/IssueDetail";
+import UpdateIssue from "./components/issue/UpdateIssue";
 
 //AuthContext
 import { useAuth } from "./authContext";
@@ -70,9 +73,115 @@ const ProjectRoutes = () => {
       path: "/repo/update/:id",
       element: <UpdateRepo />,
     },
+    {
+      path: "/repo/:id/issue/create",
+      element: <CreateIssue />,
+    },
+    {
+      path: "/issue/:id",
+      element: <IssueDetail />,
+    },
+    {
+      path: "/issue/update/:id",
+      element: <UpdateIssue />,
+    },
   ]);
 
   return elements;
 };
 
 export default ProjectRoutes;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useEffect } from "react";
+// import { useNavigate, useRoutes, useLocation } from "react-router-dom";
+
+// //pages list
+// import Dashboard from "../src/components/dashboard/Dashboard";
+// import Profile from "../src/components/user/Profile";
+// import Login from "../src/components/auth/Login";
+// import Signup from "../src/components/auth/Signup";
+// import UpdateProfile from "./components/user/UpdatUser";
+// import CreateRepo from "./components/repo/CreateRepo";
+// import RepoDetail from "./components/repo/repoDetail";
+// import UpdateRepo from "./components/repo/UpdateRepo";
+
+// //AuthContext
+// import { useAuth } from "./authContext";
+
+// const ProjectRoutes = () => {
+//   const { currentUser, setCurrentUser } = useAuth();
+//   const navigate = useNavigate();
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     const userIdFromStorage = localStorage.getItem("userId");
+//     if (userIdFromStorage && !currentUser) {
+//       setCurrentUser(userIdFromStorage);
+//     }
+
+//     if (
+//       !userIdFromStorage &&
+//       !["/auth", "/signup"].includes(location.pathname)
+//     ) {
+//       navigate("/auth");
+//     }
+
+//     if (userIdFromStorage && location.pathname === "/auth") {
+//       navigate("/");
+//     }
+//   }, [currentUser, navigate, setCurrentUser, location.pathname]);
+
+//   let elements = useRoutes([
+//     {
+//       path: "/",
+//       element: <Dashboard />,
+//     },
+//     {
+//       path: "/auth",
+//       element: <Login />,
+//     },
+//     {
+//       path: "/signup",
+//       element: <Signup />,
+//     },
+//     {
+//       path: "/profile",
+//       element: <Profile />,
+//     },
+//     {
+//       path: "/edit-profile",
+//       element: <UpdateProfile />,
+//     },
+//     {
+//       path: "/create-repository",
+//       element: <CreateRepo />,
+//     },
+//     {
+//       path: "/repo/:id",
+//       element: <RepoDetail />,
+//     },
+//     {
+//       path: "/repo/update/:id",
+//       element: <UpdateRepo />,
+//     },
+//   ]);
+
+//   return elements;
+// };
+
+// export default ProjectRoutes;

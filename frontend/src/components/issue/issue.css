@@ -1,0 +1,641 @@
+/* Issue Wrapper */
+.issue-wrapper {
+  min-height: calc(100vh - 60px);
+  background: #0d1117;
+  padding: 40px 20px;
+}
+
+.issue-container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/* Issue Header */
+.issue-header {
+  margin-bottom: 24px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #58a6ff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: #21262d;
+}
+
+.issue-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #c9d1d9;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #8b949e;
+}
+
+/* Alert Messages */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert svg {
+  flex-shrink: 0;
+}
+
+.alert-error {
+  background: rgba(248, 81, 73, 0.1);
+  color: #f85149;
+  border: 1px solid rgba(248, 81, 73, 0.4);
+}
+
+.alert-success {
+  background: rgba(63, 185, 80, 0.1);
+  color: #3fb950;
+  border: 1px solid rgba(63, 185, 80, 0.4);
+}
+
+/* Form */
+.issue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-section {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+.required {
+  color: #f85149;
+  margin-left: 4px;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #c9d1d9;
+  background: #0d1117;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #58a6ff;
+  background: #0d1117;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #6e7681;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #21262d;
+}
+
+.btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #238636;
+  color: #ffffff;
+  border-color: rgba(240, 246, 252, 0.1);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2ea043;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #c9d1d9;
+  border-color: #30363d;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #21262d;
+  border-color: #8b949e;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 0.6s linear infinite;
+}
+
+.spinner-large {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #21262d;
+  border-radius: 50%;
+  border-top-color: #58a6ff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Issue Detail Page */
+.issue-detail-wrapper {
+  min-height: calc(100vh - 60px);
+  background: #0d1117;
+  padding: 32px 20px;
+}
+
+.issue-detail-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.issue-detail-header {
+  margin-bottom: 24px;
+}
+
+.issue-title-section {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.issue-title-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.issue-icon-large {
+  color: #3fb950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.issue-icon-large svg {
+  width: 24px;
+  height: 24px;
+}
+
+.issue-title-line h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #c9d1d9;
+  flex: 1;
+}
+
+.issue-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+
+.issue-status-badge.open {
+  color: #3fb950;
+  border-color: #3fb950;
+  background: rgba(63, 185, 80, 0.1);
+}
+
+.issue-status-badge.closed {
+  color: #a371f7;
+  border-color: #a371f7;
+  background: rgba(163, 113, 247, 0.1);
+}
+
+/* Issue Actions */
+.issue-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid;
+}
+
+.btn-update {
+  background: transparent;
+  color: #58a6ff;
+  border-color: #30363d;
+}
+
+.btn-update:hover {
+  background: rgba(88, 166, 255, 0.1);
+  border-color: #58a6ff;
+}
+
+.btn-close {
+  background: transparent;
+  color: #a371f7;
+  border-color: #30363d;
+}
+
+.btn-close:hover {
+  background: rgba(163, 113, 247, 0.1);
+  border-color: #a371f7;
+}
+
+.btn-reopen {
+  background: transparent;
+  color: #3fb950;
+  border-color: #30363d;
+}
+
+.btn-reopen:hover {
+  background: rgba(63, 185, 80, 0.1);
+  border-color: #3fb950;
+}
+
+.btn-delete {
+  background: transparent;
+  color: #f85149;
+  border-color: #30363d;
+}
+
+.btn-delete:hover {
+  background: rgba(248, 81, 73, 0.1);
+  border-color: #f85149;
+}
+
+/* Description Section */
+.issue-description-section {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.issue-description-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #c9d1d9;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #21262d;
+}
+
+.issue-description-content {
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+.issue-description-content p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Loading and Error States */
+.issue-detail-loading,
+.issue-detail-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  color: #8b949e;
+  text-align: center;
+}
+
+.issue-detail-loading p,
+.issue-detail-error p {
+  margin-top: 16px;
+}
+
+.issue-detail-error svg {
+  color: #f85149;
+  margin-bottom: 16px;
+}
+
+.issue-detail-error h2 {
+  color: #c9d1d9;
+  margin-bottom: 24px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 4, 9, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 440px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.warning-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 12px;
+  background: rgba(248, 81, 73, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f85149;
+}
+
+.modal-header {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #30363d;
+  position: relative;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f85149;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #8b949e;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #21262d;
+  color: #c9d1d9;
+}
+
+.modal-body {
+  padding: 16px 20px 20px;
+}
+
+.warning-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #c9d1d9;
+  margin: 0 0 10px 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.warning-subtext {
+  font-size: 13px;
+  color: #8b949e;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.warning-subtext strong {
+  color: #f85149;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 0 20px 20px;
+}
+
+.cancel-btn,
+.delete-confirm-btn {
+  flex: 1;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cancel-btn {
+  background: transparent;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #21262d;
+  border-color: #8b949e;
+}
+
+.delete-confirm-btn {
+  background: #da3633;
+  color: #ffffff;
+  border: 1px solid #da3633;
+  font-weight: 600;
+}
+
+.delete-confirm-btn:hover:not(:disabled) {
+  background: #f85149;
+  border-color: #f85149;
+}
+
+.cancel-btn:disabled,
+.delete-confirm-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .issue-wrapper,
+  .issue-detail-wrapper {
+    padding: 20px 12px;
+  }
+
+  .issue-header h1 {
+    font-size: 20px;
+  }
+
+  .issue-title-line {
+    flex-wrap: wrap;
+  }
+
+  .issue-actions {
+    flex-direction: column;
+  }
+
+  .btn-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}

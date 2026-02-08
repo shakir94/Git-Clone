@@ -3,6 +3,8 @@ const Repository = require("../models/repoModel");
 const User = require("../models/userModel");
 const Issue = require("../models/issueModel");
 
+
+
 const createRepository = async (req, res) => {
   const { name, description, content, visibility, owner, issues } = req.body;
   console.log("OWNER VALUE:", owner);
@@ -64,12 +66,13 @@ const fetchRepositoryById = async (req, res) => {
       return res.status(404).json({ message: "Repository not found" });
     }
 
-    res.json(repository); // Return single object, not array
+    res.json(repository); 
   } catch (err) {
     console.error("Error during fetching", err.message);
     res.status(500).json({ message: "Server Error" });
   }
 };
+
 const fetchRepositoryByName = async (req, res) => {
   const { name } = req.params;
   try {

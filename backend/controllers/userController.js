@@ -44,7 +44,7 @@ const signUp = async (req, res) => {
     const token = jwt.sign(
       { id: result.insertedId },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: "12h" },
+      { expiresIn: "2h" },
     );
     res.json({ token, userId:result.insertedId});
   } catch (err) {
@@ -62,15 +62,15 @@ const logIn = async (req, res) => {
 
     const user = await userCollection.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Invale Credentials" });
+      return res.status(400).json({ message: "Invalid Credentials" });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Inval Credentials" });
+      return res.status(400).json({ message: "Invalid Credentials" });
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "12h",
+      expiresIn: "2h",
     });
     res.json({ token, userId: user._id });
   } catch (err) {
